@@ -1,0 +1,21 @@
+{
+	"devDependencies": {
+		"@types/jest": "^28.1.4",
+		"jest": "^28.1.2",
+		"ts-jest": "^28.0.5",
+		"typescript": "^4.7.4"
+	},
+	"name": "rjstry",
+	"version": "1.0.0",
+	"description": "Modular object matching and extension",
+	"main": "dist/index.js",
+	"scripts": {
+		"test": "jest",
+		"test-watch": "jest --watchAll",
+		"build": "rm -rf ./dist/ && tsc",
+		"prepublish": "yarn build"
+	},
+	"private": false,
+	"author": "",
+	"license": "ISC"
+}
