@@ -1,6 +1,6 @@
 # Rjstry
 
-![Rjstry logo](./images/rjstry.svg)
+![Rjstry logo](https://github.com/LeRedditBro/rjstry/blob/main/images/rjstry.svg)
 
 modular pattern matcher designed to reduce boilerplate when matching between objects
 
