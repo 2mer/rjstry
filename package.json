@@ -6,7 +6,7 @@
 		"typescript": "^4.7.4"
 	},
 	"name": "rjstry",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Modular object matching and extension",
 	"main": "dist/index.js",
 	"scripts": {
