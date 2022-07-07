@@ -10,7 +10,7 @@
 		"test": "jest",
 		"test-watch": "jest --watchAll",
 		"build": "rm -rf ./dist/ && tsc",
-		"prepublish": "yarn build"
+		"prepare": "yarn build"
 	},
 	"devDependencies": {
 		"@types/jest": "^28.1.4",
