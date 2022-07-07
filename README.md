@@ -3,6 +3,7 @@
 ![Rjstry logo](https://github.com/LeRedditBro/rjstry/blob/main/images/rjstry.svg)
 
 <img src="https://img.shields.io/badge/-No%20Dependencies%20%F0%9F%8D%83-brightgreen"/>
+<img src="https://img.shields.io/bundlephobia/min/rjstry"/>
 
 modular pattern matcher designed to reduce boilerplate when matching between objects
 
