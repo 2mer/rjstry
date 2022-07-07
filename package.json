@@ -1,5 +1,5 @@
 {
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"name": "rjstry",
 	"description": "Modular object matching and extension",
 	"main": "dist/index.js",
