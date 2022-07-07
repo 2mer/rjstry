@@ -54,4 +54,9 @@ export default class Lookup<K, R> {
 
 		return undefined;
 	}
+
+	// match multiple items
+	matchAll(items: K[], ...param: any[]): (R | undefined)[] {
+		return items.map((item) => this.match(item, ...param));
+	}
 }

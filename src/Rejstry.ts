@@ -61,4 +61,9 @@ export default class Rejstry<K, R> {
 
 		return found;
 	}
+
+	// match multiple items
+	matchAll(items: K[], ...param: any[]): (R | undefined)[] {
+		return items.map((item) => this.match(item, ...param));
+	}
 }

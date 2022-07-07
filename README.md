@@ -6,6 +6,8 @@ modular pattern matcher designed to reduce boilerplate when matching between obj
 
 the motivation was to create a system to handle mapping between identifiable object instances to new instances (that may be extensions of the original instance)
 
+Similar to rust match, but with modular building blocks at runtime
+
 ## Common use cases
 
 -   Backend sends a list of ids that need to be mapped to react elements
@@ -102,4 +104,47 @@ const root = new Registry(lookup);
 
 root.match({ id: 'b' });
 // -> 'bb'
+```
+
+### Modularity
+
+registries are built to be modular, you can dynamically add or remove registry matchers, the following example is in react but can be used with the same lifecycle methodology
+
+**registry.js:**
+
+```js
+import Registry from 'rjstry';
+
+// this will be the root of the registry
+// modular registries will mount onto it like building blocks
+const registry = new Registry();
+
+export default registry;
+```
+
+**RegistryProvider.jsx:**
+
+```jsx
+import Registry, { Lookup } from 'rjstry';
+import registry from './registry';
+
+const RegistryProvider = ({ children }) => {
+	// on mount
+	useEffect(() => {
+		const undo = registry.add(
+			(i) => i > 10 && 'big',
+			new Registry(
+				(i) => i < 0 && 'negative',
+				(i) => i === 0 && 'zero'
+			)
+		);
+
+		// cleanup on unmount
+		return () => {
+			undo();
+		};
+	}, []);
+
+	return children;
+};
 ```
