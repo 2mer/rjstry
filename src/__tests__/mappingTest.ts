@@ -1,5 +1,5 @@
 import Lookup from '../Lookup';
-import Registry from '../Rejstry';
+import Registry from '../Registry';
 
 const testItemA = { id: 'a' };
 const testItemB = { id: 'b' };
