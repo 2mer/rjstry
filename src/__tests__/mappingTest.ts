@@ -147,3 +147,28 @@ test('Test removal empty', () => {
 	expect(root.match(testItemC)).toBe('cc');
 	expect(root.match(testItemD)).toEqual({ id: 'd', test: 'dd' });
 });
+
+test('Test emission', () => {
+	const root = new Registry();
+
+	const mockHandler = jest.fn(() => {});
+
+	root.onChange.sub(mockHandler);
+
+	const cleanup = root.add(() => {});
+
+	expect(mockHandler.mock.calls.length).toBe(1);
+
+	cleanup();
+
+	expect(mockHandler.mock.calls.length).toBe(2);
+
+	const h = () => {};
+	root.add(h);
+
+	expect(mockHandler.mock.calls.length).toBe(3);
+
+	root.remove(h);
+
+	expect(mockHandler.mock.calls.length).toBe(4);
+});

@@ -1,4 +1,4 @@
-import EventEmitter from './EventEmitter';
+import EventEmitter from '@sgty/m-it';
 import Matcher from './Matcher';
 
 export default class Registry<K, R> {
@@ -25,12 +25,11 @@ export default class Registry<K, R> {
 
 	// add all matchers to registry
 	add(...matchers: Matcher<K, R>[]) {
-		const cleanups = matchers.map((m) => this._add(m));
+		matchers.forEach((m) => this._add(m));
 		this.onChange.emit();
 
 		return () => {
-			cleanups.forEach((c) => c());
-			this.onChange.emit();
+			this.remove(...matchers);
 		};
 	}
 
